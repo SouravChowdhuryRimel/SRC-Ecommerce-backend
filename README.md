@@ -26,6 +26,7 @@ This project also integrates **Stripe** for secure payments and **Firebase** for
 ### 📦 Product Management
 - CRUD operations for products.
 - Product categories, images, and pricing support.
+- Also Subscription for each seller
 
 ### 🛒 Order Management
 - Buyer can place, view, and cancel orders.
