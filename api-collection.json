@@ -1,266 +1,315 @@
 {
-	"info": {
-		"_postman_id": "d87c7b8c-9fcd-4f87-8d90-b07aa35ccf7c",
-		"name": "Web Builder (SaS)",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "37626622",
-		"_collection_link": "https://code-busters-4416.postman.co/workspace/Maruf~468aaf79-faf0-4bb1-af3d-003e6d5bd70e/collection/37626622-d87c7b8c-9fcd-4f87-8d90-b07aa35ccf7c?action=share&source=collection_link&creator=37626622"
-	},
-	"item": [
-		{
-			"name": "Auth",
-			"item": [
-				{
-					"name": "Register",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Abumahid Islam\",\r\n    \"email\":\"dev.abumahid@gmail.com\",\r\n    \"password\":\"123456\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{local_url}}/auth/register"
-					},
-					"response": []
-				},
-				{
-					"name": "Login",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"dev.abumahid@gmail.com\",\r\n    \"password\":\"111111\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{local_url}}/auth/login"
-					},
-					"response": []
-				},
-				{
-					"name": "Verified Account",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRldi5hYnVtYWhpZEBnbWFpbC5jb20iLCJpYXQiOjE3NTE1Nzg1MTgsImV4cCI6MTc1MTU3ODgxOH0.fF6UP2y7CCFJcThDda19u6feWKKm_HECpob9pEH7ThM\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{local_url}}/auth/verified-account"
-					},
-					"response": []
-				},
-				{
-					"name": "Change Password",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{accessToken}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"oldPassword\":\"123456\",\r\n    \"newPassword\":\"000000\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{local_url}}/auth/change-password"
-					},
-					"response": []
-				},
-				{
-					"name": "Forgot Password",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{accessToken}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"dev.abumahid@gmail.com\"\r\n    \r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{local_url}}/auth/forgot-password"
-					},
-					"response": []
-				},
-				{
-					"name": "Reset Password",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{accessToken}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"dev.abumahid@gmail.com\",\r\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRldi5hYnVtYWhpZEBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc1MTYwOTk2NiwiZXhwIjoxNzUxNjEwMjY2fQ.Q2L2dbYP1wqTAiK11gJ-8tQ0WmWoWHp3V7ChtsPXu80\",\r\n    \"newPassword\":\"111111\"\r\n    \r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{local_url}}/auth/reset-password"
-					},
-					"response": []
-				},
-				{
-					"name": "Get Me",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{accessToken}}",
-								"type": "text"
-							}
-						],
-						"url": "{{local_url}}/auth/me"
-					},
-					"response": []
-				},
-				{
-					"name": "Get new Verification Link",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"dev.abumahid@gmail.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{local_url}}/auth/new-verification-link"
-					},
-					"response": []
-				},
-				{
-					"name": "Get Refresh Token",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"dev.abumahid@gmail.com\"\r\n}"
-						},
-						"url": "{{local_url}}/auth/refresh-token"
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Users",
-			"item": [
-				{
-					"name": "Update Profile",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{accessToken}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "data",
-									"value": "{\"name\":\"hello\"}",
-									"type": "text"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "/home/abumahid/Pictures/Screenshots/Screenshot from 2025-07-03 11-48-11.png"
-								}
-							]
-						},
-						"url": "{{local_url}}/user/update-profile"
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Test",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": "http://localhost:5000"
-			},
-			"response": []
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"key": "local_url",
-			"value": "http://localhost:5000/api",
-			"type": "string"
-		},
-		{
-			"key": "accessToken",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRldi5hYnVtYWhpZEBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc1MTYyNTg0MSwiZXhwIjoxNzUxODg1MDQxfQ.yaBdmIyqBLDrgGCKfjspBJmiu-zMAS_8WUoCm5NCozY",
-			"type": "string"
-		}
-	]
+  "info": {
+    "_postman_id": "adad070b-d399-4891-b1dd-abde379e8b06",
+    "name": "hamdann_backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "products",
+      "item": [
+        {
+          "name": "create product",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "availableColors",
+                  "value": "#FF0009",
+                  "type": "text"
+                },
+                {
+                  "key": "availableSizes",
+                  "value": "M",
+                  "type": "text"
+                },
+                {
+                  "key": "brand",
+                  "value": "FashionHub",
+                  "type": "text"
+                },
+                {
+                  "key": "category",
+                  "value": "Beauty",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "A stylish and comfortable men's casual t-shirt made of 100% cotton",
+                  "type": "text"
+                },
+                {
+                  "key": "gender",
+                  "value": "male",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file"
+                },
+                {
+                  "key": "name",
+                  "value": "abc",
+                  "type": "text"
+                },
+                {
+                  "key": "price",
+                  "value": "51",
+                  "type": "text"
+                },
+                {
+                  "key": "quantity",
+                  "value": "10",
+                  "type": "text"
+                },
+                {
+                  "key": "sku",
+                  "value": "TSHIRT-ds0013f256244d6515ertd8dd44ddd44dsg",
+                  "type": "text"
+                },
+                {
+                  "key": "userId",
+                  "value": "690598a9f16b89d03ffaf9a6",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/product/create",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "product", "create"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/product/getAll?page=2&limit=10",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "product", "getAll"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get single product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/product/getSingle/68ef76eb6f9811ffb6777809",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "product", "getSingle", "68ef76eb6f9811ffb6777809"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "add review",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": {
+                "userId": "68e48af214df41d40d552d73",
+                "rating": "5",
+                "comment": "Amazing quality and fast delivery!"
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/product/addReview/68eb50ba8393abfde5aa490b",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "product", "addReview", "68eb50ba8393abfde5aa490b"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "users",
+      "item": [
+        {
+          "name": "create user",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Business Owner",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "user@example.com",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "1234",
+                  "type": "text"
+                },
+                {
+                  "key": "role",
+                  "value": "Seller",
+                  "type": "text"
+                },
+                {
+                  "key": "businessLogo",
+                  "type": "file"
+                },
+                {
+                  "key": "businessName",
+                  "value": "my Business",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/user/create",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "user", "create"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get single user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/user/get-single/68fda92681c0d746f542965b",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "user", "get-single", "68fda92681c0d746f542965b"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": {
+                "email": "user@example.com",
+                "password": "password123",
+                "deviceToken": "device_token_here"
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "refresh token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer your_jwt_token_here",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": {
+                "refreshToken": "your_refresh_token_here"
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/auth/refresh-token",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "auth", "refresh-token"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "order",
+      "item": [
+        {
+          "name": "create order",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": {
+                "userId": "69058a05141ef1a0b24f5d65",
+                "items": [
+                  {
+                    "productId": "69059a04f16b89d03ffaf9b7",
+                    "price": 50,
+                    "quantity": 1,
+                    "image": "product-image2.jpg"
+                  }
+                ],
+                "contactInfo": {
+                  "email": "customer@example.com",
+                  "phone": "+1234567890"
+                },
+                "shippingAddress": {
+                  "fullName": "John Doe",
+                  "addressLine1": "123 Main St",
+                  "addressLine2": "Apt #48",
+                  "city": "New York",
+                  "postalCode": "10001",
+                  "country": "USA"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/order/create",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "order", "create"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://your-api-domain.com",
+      "type": "default"
+    }
+  ]
 }
